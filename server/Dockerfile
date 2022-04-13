@@ -4,7 +4,7 @@ USER node
 
 WORKDIR /app
 
-COPY packgage*.json .
+COPY package*.json .
 
 RUN npm install
 
