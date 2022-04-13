@@ -4,7 +4,7 @@ USER node
 
 WORKDIR /app
 
-COPY package*.json .
+COPY package*.json ./
 
 RUN npm install
 
@@ -22,7 +22,7 @@ ENV NODE_ENV=${NODE_ENV}}
 
 WORKDIR /app
 
-COPY package*.json .
+COPY package*.json ./
 
 RUN npm ci --only=production
 
