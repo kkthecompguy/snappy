@@ -1,4 +1,4 @@
-FROM node:16.14.2-alphine as development
+FROM node:16.14.2-alpine as development
 
 USER node
 
@@ -13,7 +13,7 @@ COPY . .
 RUN npm run build
 
 
-FROM node:16.14.2-alphine as production
+FROM node:16.14.2-alpine as production
 
 USER node
 

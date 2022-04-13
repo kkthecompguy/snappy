@@ -1,4 +1,4 @@
-export const host: string = "http://localhost:3001"
+export const host: string = process.env.REACT_APP_HOST || "http://localhost:3001"
 const baseurl: string = `${host}/api/v1/`;
 const apiRoutes = {
   registerRoute: `${baseurl}auth/register`,
