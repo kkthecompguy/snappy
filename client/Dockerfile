@@ -4,6 +4,8 @@ USER node
 
 WORKDIR /app
 
+RUN chown -R node:node /app
+
 COPY package*.json ./
 
 RUN npm install
@@ -20,6 +22,8 @@ ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}}
 
 WORKDIR /app
+
+RUN chown -R node:node /app
 
 COPY package*.json ./
 
