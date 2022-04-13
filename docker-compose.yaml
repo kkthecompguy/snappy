@@ -1,0 +1,46 @@
+version: '3'
+services:
+  backend:
+    build:
+      context: ./server
+      target: production
+    container_name: express_backend
+    restart: unless-stopped
+    depends_on:
+      - mongodb
+    environment:
+      - PORT=3001
+      - MONGO_URI=mongodb://root:root@mongodb:27017/letschat
+      - JWT_SECRET=and0c2VjcmV0a2V5
+      - JWT_EXPIRES=1h
+      - CLIENT_HOST=http://frontend:3000
+    ports:
+      - 3001:3001
+
+  frontend:
+    build: 
+      context: ./client
+      target: production
+    container_name: react_frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+      - mongodb
+    environment:
+      - REACT_APP_LOCALHOST_KEY=chat-app-user
+      - REACT_APP_HOST=http://backend:3001
+    ports:
+      - 3000:3000
+
+  mongodb:
+    image: mongo:4.0.28-xenial
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - mongodata:/data/db
+
+
+volumes:
+  mongodata:
