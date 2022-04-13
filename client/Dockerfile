@@ -1,10 +1,6 @@
 FROM node:16.14.2-alpine as build
 
-USER node
-
 WORKDIR /app
-
-RUN chown -R node:node /app
 
 COPY package*.json ./
 
@@ -16,14 +12,11 @@ RUN npm run build
 
 FROM node:16.14.2-alpine as production
 
-USER node
-
 ARG NODE_ENV=production
+
 ENV NODE_ENV=${NODE_ENV}}
 
 WORKDIR /app
-
-RUN chown -R node:node /app
 
 COPY package*.json ./
 
