@@ -20,7 +20,7 @@
     "test": "jest",
     "dev": "nodemon ./src/server.ts",
     "start": "npm run build && node ./build/src/server.js",
-    "build": "rmraf ./build && tsc"
+    "build": "rimraf ./build && tsc"
   },
   "keywords": [
     "chat",
