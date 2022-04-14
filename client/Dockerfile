@@ -14,7 +14,7 @@ FROM node:16.14.2-alpine as production
 
 ARG NODE_ENV=production
 
-ENV NODE_ENV=${NODE_ENV}}
+ENV NODE_ENV=${NODE_ENV}
 
 WORKDIR /app
 
