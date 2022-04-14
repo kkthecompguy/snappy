@@ -24,6 +24,8 @@ RUN npm ci --only=production
 
 COPY --from=build /app/build/ ./build
 
+COPY --from=build /app/entrypoint.sh .
+
 EXPOSE 3000
 
 RUN pwd && ls -al
