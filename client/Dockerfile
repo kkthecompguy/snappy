@@ -26,6 +26,8 @@ COPY --from=build /app/build/ ./build
 
 COPY --from=build /app/entrypoint.sh .
 
+COPY --from=build /app/server.js .
+
 EXPOSE 3000
 
 RUN pwd && ls -al
