@@ -10,10 +10,10 @@ services:
       - mongodb
     environment:
       - PORT=3001
-      - MONGO_URI=mongodb://@mongodb:27017/letschat
+      - MONGO_URI=mongodb://admin:password@mongodb/letschat
       - JWT_SECRET=and0c2VjcmV0a2V5
       - JWT_EXPIRES=1h
-      - CLIENT_HOST=http://frontend:3000
+      - CLIENT_HOST=http://frontend
     ports:
       - 3001:3001
 
@@ -28,7 +28,7 @@ services:
       - mongodb
     environment:
       - REACT_APP_LOCALHOST_KEY=chat-app-user
-      - REACT_APP_HOST=http://backend:3001
+      - REACT_APP_HOST=http://backend
     ports:
       - 3000:3000
 
@@ -36,8 +36,8 @@ services:
     image: mongo:4.0.28-xenial
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
     ports:
       - 27017:27017
     volumes:
