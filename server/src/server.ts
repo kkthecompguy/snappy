@@ -33,6 +33,7 @@ app.use(express.json());
 // database connection
 async function connection() {
   let mongouri: string = process.env.MONGO_URI || ''
+  console.log('is the environ set', process.env.MONGO_URI)
   await mongoose.connect(mongouri)
 }
 

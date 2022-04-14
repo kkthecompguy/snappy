@@ -10,7 +10,7 @@ services:
       - mongodb
     environment:
       - PORT=3001
-      - MONGO_URI=mongodb://admin:password@mongodb/letschat
+      - MONGO_URI=mongodb+srv://admin:password@mongodb/letschat?retryWrites=true&w=majority
       - JWT_SECRET=and0c2VjcmV0a2V5
       - JWT_EXPIRES=1h
       - CLIENT_HOST=http://frontend
