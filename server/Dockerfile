@@ -27,6 +27,8 @@ COPY --from=development /app/build/ ./build/
 
 EXPOSE 3001
 
+RUN pwd && ls -al
+
 RUN chmod +x /app/entrypoint.sh
 
 CMD [ "/app/entrypoint.sh" ]
